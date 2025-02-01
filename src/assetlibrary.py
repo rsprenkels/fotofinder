@@ -83,7 +83,7 @@ class AssetLibrary:
                 if want_this(file):
                     file_hash = compute_file_hash(Path(root, file).as_posix())
                     if not self.contains(file_hash):
-                        self.logger.info(f"adding {file} with hash {file_hash}")
+                        self.logger.info(f"adding {Path(root, file).as_posix()}")
                         self.add(root, file, file_hash)
                     else:
                         self.logger.info(
