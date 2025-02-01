@@ -81,7 +81,7 @@ class AssetLibrary:
             # print((len(path) - 1) * "---", os.path.basename(root))
             for file in files:
                 if want_this(file):
-                    file_hash = compute_file_hash(f"{root}\\{file}")
+                    file_hash = compute_file_hash(Path(root, file).as_posix())
                     if not self.contains(file_hash):
                         self.logger.info(f"adding {file} with hash {file_hash}")
                         self.add(root, file, file_hash)
