@@ -68,7 +68,7 @@ class AssetLibrary:
         self.assets[hash_value] = (root, file, self.sequence_number)
         self.sequence_number += 1
         filename, file_extension = os.path.splitext(file)
-        shutil.copyfile(
+        shutil.copy2(
             f"{root}//{file}",
             f"{self.root_dir}/{filename}_{seq_nr}{file_extension}",
         )
